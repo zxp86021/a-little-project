@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Socialite;
@@ -47,6 +48,7 @@ class LoginController extends Controller
     {
         return Socialite::driver('google')->redirect();
     }
+
     /**
      * Obtain the user information from Google.
      *
@@ -73,26 +75,20 @@ class LoginController extends Controller
             ->first();
 
         if($existingUser){
-            $login_id = $existingUser->id;
             // log them in
             auth()->login($existingUser, true);
         } else {
             // create a new user
-            $newUser = new User;
-            $newUser->name = $user->name;
-            $newUser->email = $user->email;
-            $newUser->email_verified_at = now();
-            $newUser->google_id = $user->id;
-            $newUser->avatar = $user->avatar;
-            $newUser->avatar_original = $user->avatar_original;
-            $newUser->save();
-
-            $login_id = $newUser->id;
+            $newUser = User::create([
+                'name' => $user->name,
+                'email' => $user->email,
+                'google_id' => $user->id,
+                'avatar' => $user->avatar,
+                'avatar_original' => $user->avatar_original
+            ]);
 
             auth()->login($newUser, true);
         }
-
-        $this->login_logs($login_id, '127.0.0.1', 'google');
 
         return redirect()->to('/home');
     }
