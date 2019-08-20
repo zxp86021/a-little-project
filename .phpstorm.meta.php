@@ -5,7 +5,7 @@ namespace PHPSTORM_META {
 
    /**
     * PhpStorm Meta file, to provide autocomplete information for PhpStorm
-    * Generated on 2019-08-19 20:17:18.
+    * Generated on 2019-08-20 18:49:41.
     *
     * @author Barry vd. Heuvel <barryvdh@gmail.com>
     * @see https://github.com/barryvdh/laravel-ide-helper
@@ -57,7 +57,7 @@ namespace PHPSTORM_META {
         'command.ide-helper.eloquent' => \Barryvdh\LaravelIdeHelper\Console\EloquentCommand::class,
         'command.ide-helper.generate' => \Barryvdh\LaravelIdeHelper\Console\GeneratorCommand::class,
         'command.ide-helper.meta' => \Barryvdh\LaravelIdeHelper\Console\MetaCommand::class,
-        'command.ide-helper.Models' => \Barryvdh\LaravelIdeHelper\Console\ModelsCommand::class,
+        'command.ide-helper.models' => \Barryvdh\LaravelIdeHelper\Console\ModelsCommand::class,
         'command.job.make' => \Illuminate\Foundation\Console\JobMakeCommand::class,
         'command.key.generate' => \Illuminate\Foundation\Console\KeyGenerateCommand::class,
         'command.listener.make' => \Illuminate\Foundation\Console\ListenerMakeCommand::class,
@@ -188,7 +188,7 @@ namespace PHPSTORM_META {
         'command.ide-helper.eloquent' => \Barryvdh\LaravelIdeHelper\Console\EloquentCommand::class,
         'command.ide-helper.generate' => \Barryvdh\LaravelIdeHelper\Console\GeneratorCommand::class,
         'command.ide-helper.meta' => \Barryvdh\LaravelIdeHelper\Console\MetaCommand::class,
-        'command.ide-helper.Models' => \Barryvdh\LaravelIdeHelper\Console\ModelsCommand::class,
+        'command.ide-helper.models' => \Barryvdh\LaravelIdeHelper\Console\ModelsCommand::class,
         'command.job.make' => \Illuminate\Foundation\Console\JobMakeCommand::class,
         'command.key.generate' => \Illuminate\Foundation\Console\KeyGenerateCommand::class,
         'command.listener.make' => \Illuminate\Foundation\Console\ListenerMakeCommand::class,
@@ -319,7 +319,7 @@ namespace PHPSTORM_META {
         'command.ide-helper.eloquent' => \Barryvdh\LaravelIdeHelper\Console\EloquentCommand::class,
         'command.ide-helper.generate' => \Barryvdh\LaravelIdeHelper\Console\GeneratorCommand::class,
         'command.ide-helper.meta' => \Barryvdh\LaravelIdeHelper\Console\MetaCommand::class,
-        'command.ide-helper.Models' => \Barryvdh\LaravelIdeHelper\Console\ModelsCommand::class,
+        'command.ide-helper.models' => \Barryvdh\LaravelIdeHelper\Console\ModelsCommand::class,
         'command.job.make' => \Illuminate\Foundation\Console\JobMakeCommand::class,
         'command.key.generate' => \Illuminate\Foundation\Console\KeyGenerateCommand::class,
         'command.listener.make' => \Illuminate\Foundation\Console\ListenerMakeCommand::class,
@@ -450,7 +450,7 @@ namespace PHPSTORM_META {
         'command.ide-helper.eloquent' => \Barryvdh\LaravelIdeHelper\Console\EloquentCommand::class,
         'command.ide-helper.generate' => \Barryvdh\LaravelIdeHelper\Console\GeneratorCommand::class,
         'command.ide-helper.meta' => \Barryvdh\LaravelIdeHelper\Console\MetaCommand::class,
-        'command.ide-helper.Models' => \Barryvdh\LaravelIdeHelper\Console\ModelsCommand::class,
+        'command.ide-helper.models' => \Barryvdh\LaravelIdeHelper\Console\ModelsCommand::class,
         'command.job.make' => \Illuminate\Foundation\Console\JobMakeCommand::class,
         'command.key.generate' => \Illuminate\Foundation\Console\KeyGenerateCommand::class,
         'command.listener.make' => \Illuminate\Foundation\Console\ListenerMakeCommand::class,
@@ -581,7 +581,7 @@ namespace PHPSTORM_META {
         'command.ide-helper.eloquent' => \Barryvdh\LaravelIdeHelper\Console\EloquentCommand::class,
         'command.ide-helper.generate' => \Barryvdh\LaravelIdeHelper\Console\GeneratorCommand::class,
         'command.ide-helper.meta' => \Barryvdh\LaravelIdeHelper\Console\MetaCommand::class,
-        'command.ide-helper.Models' => \Barryvdh\LaravelIdeHelper\Console\ModelsCommand::class,
+        'command.ide-helper.models' => \Barryvdh\LaravelIdeHelper\Console\ModelsCommand::class,
         'command.job.make' => \Illuminate\Foundation\Console\JobMakeCommand::class,
         'command.key.generate' => \Illuminate\Foundation\Console\KeyGenerateCommand::class,
         'command.listener.make' => \Illuminate\Foundation\Console\ListenerMakeCommand::class,
@@ -712,7 +712,7 @@ namespace PHPSTORM_META {
         'command.ide-helper.eloquent' => \Barryvdh\LaravelIdeHelper\Console\EloquentCommand::class,
         'command.ide-helper.generate' => \Barryvdh\LaravelIdeHelper\Console\GeneratorCommand::class,
         'command.ide-helper.meta' => \Barryvdh\LaravelIdeHelper\Console\MetaCommand::class,
-        'command.ide-helper.Models' => \Barryvdh\LaravelIdeHelper\Console\ModelsCommand::class,
+        'command.ide-helper.models' => \Barryvdh\LaravelIdeHelper\Console\ModelsCommand::class,
         'command.job.make' => \Illuminate\Foundation\Console\JobMakeCommand::class,
         'command.key.generate' => \Illuminate\Foundation\Console\KeyGenerateCommand::class,
         'command.listener.make' => \Illuminate\Foundation\Console\ListenerMakeCommand::class,
@@ -843,7 +843,7 @@ namespace PHPSTORM_META {
         'command.ide-helper.eloquent' => \Barryvdh\LaravelIdeHelper\Console\EloquentCommand::class,
         'command.ide-helper.generate' => \Barryvdh\LaravelIdeHelper\Console\GeneratorCommand::class,
         'command.ide-helper.meta' => \Barryvdh\LaravelIdeHelper\Console\MetaCommand::class,
-        'command.ide-helper.Models' => \Barryvdh\LaravelIdeHelper\Console\ModelsCommand::class,
+        'command.ide-helper.models' => \Barryvdh\LaravelIdeHelper\Console\ModelsCommand::class,
         'command.job.make' => \Illuminate\Foundation\Console\JobMakeCommand::class,
         'command.key.generate' => \Illuminate\Foundation\Console\KeyGenerateCommand::class,
         'command.listener.make' => \Illuminate\Foundation\Console\ListenerMakeCommand::class,
