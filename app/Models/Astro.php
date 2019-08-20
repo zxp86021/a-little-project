@@ -12,8 +12,8 @@ class Astro extends Model
 
     protected $fillable = [
         'name',
-        'luck_score',
-        'luck_description',
+        'total_luck_score',
+        'total_luck_description',
         'love_luck_score',
         'love_luck_description',
         'work_luck_score',

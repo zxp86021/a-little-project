@@ -18,16 +18,21 @@ class AstroRepository
     }
 
     /**
-     * @param $data
-     * @return \Illuminate\Database\Eloquent\Model|FuelPrice
+     * @param $data array
+     * @return mixed
      */
     public function createAstro($data)
     {
-        return $this->fuelPriceModel->create([
-            'name' => $data['產品名稱'],
-            'unit' => $data['計價單位'],
-            'price' => $data['參考牌價'],
-            'start_at' => $data['牌價生效時間']
+        return $this->astroModel->create([
+            'name' => $data['name'],
+            'total_luck_score' => $data['total']['luck_score'],
+            'total_luck_description' => $data['total']['luck_description'],
+            'love_luck_score' => $data['love']['luck_score'],
+            'love_luck_description' => $data['love']['luck_description'],
+            'work_luck_score' => $data['work']['luck_score'],
+            'work_luck_description' => $data['work']['luck_description'],
+            'financial_luck_score' => $data['financial']['luck_score'],
+            'financial_luck_description' => $data['financial']['luck_description']
         ]);
     }
 

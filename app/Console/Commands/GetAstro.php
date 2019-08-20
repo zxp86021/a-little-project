@@ -42,10 +42,16 @@ class GetAstro extends Command
      */
     public function handle()
     {
-        $page = $this->astroService->getAllAstro();
+        $astroLinks = $this->astroService->getAllAstro();
 
-        $this->info($page);
+        foreach ($astroLinks as $name => $link) {
+            $detail = $this->astroService->getAstroDetail($link);
 
-        //\Log::info($page);
+            $this->info($detail);
+
+            sleep(10);
+        }
+
+        //$this->info(json_encode($astroLinks, JSON_UNESCAPED_UNICODE));
     }
 }
