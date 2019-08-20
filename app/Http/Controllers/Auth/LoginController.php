@@ -58,7 +58,6 @@ class LoginController extends Controller
     {
         try {
             $user = Socialite::driver('google')->user();
-            \Log::info($user);
         } catch (\Exception $e) {
             return redirect('/login');
         }
