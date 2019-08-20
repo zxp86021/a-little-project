@@ -58,38 +58,39 @@ class LoginController extends Controller
     {
         try {
             $user = Socialite::driver('google')->user();
+
+            /*
+            // only allow people with @company.com to login
+            if(explode("@", $user->email)[1] !== 'company.com'){
+                return redirect()->to('/');
+            }
+            */
+
+            // check if they're an existing user
+            $existingUser = User::where('email', $user->email)
+                ->where('google_id', $user->id)
+                ->first();
+
+            if($existingUser){
+                // log them in
+                auth()->login($existingUser, true);
+            } else {
+                // create a new user
+                $newUser = User::create([
+                    'name' => $user->name,
+                    'email' => $user->email,
+                    'google_id' => $user->id,
+                    'avatar' => $user->avatar,
+                    'avatar_original' => $user->avatar_original
+                ]);
+
+                // log them in
+                auth()->login($newUser, true);
+            }
+
+            return redirect()->to('/home');
         } catch (\Exception $e) {
             return redirect('/login');
         }
-
-        /*
-        // only allow people with @company.com to login
-        if(explode("@", $user->email)[1] !== 'company.com'){
-            return redirect()->to('/');
-        }
-        */
-
-        // check if they're an existing user
-        $existingUser = User::where('email', $user->email)
-            ->where('google_id', $user->id)
-            ->first();
-
-        if($existingUser){
-            // log them in
-            auth()->login($existingUser, true);
-        } else {
-            // create a new user
-            $newUser = User::create([
-                'name' => $user->name,
-                'email' => $user->email,
-                'google_id' => $user->id,
-                'avatar' => $user->avatar,
-                'avatar_original' => $user->avatar_original
-            ]);
-
-            auth()->login($newUser, true);
-        }
-
-        return redirect()->to('/home');
     }
 }
