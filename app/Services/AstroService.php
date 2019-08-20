@@ -75,7 +75,7 @@ class AstroService
     {
         $httpClient = new GuzzleHttpClient($this->httpConf);
 
-        $response = $httpClient->request('GET', $astroLink);
+        $response = $httpClient->request('GET', $astroLink . '&iAcDay=' . date('Y-m-d'));
 
         $dom = new Dom;
 
@@ -117,6 +117,13 @@ class AstroService
             ];
         }
 
-        return json_encode($luck, JSON_UNESCAPED_UNICODE);
+        return $luck;
+    }
+
+    public function createToDb($data)
+    {
+        if (!$this->astroRepository->checkRecordExistByNameDate($data['name'], date('Y-m-d'))) {
+            $this->astroRepository->createAstro($data);
+        }
     }
 }

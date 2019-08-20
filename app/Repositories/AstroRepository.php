@@ -37,25 +37,14 @@ class AstroRepository
     }
 
     /**
-     * @param $productName
-     * @return \Illuminate\Database\Eloquent\Builder|\Illuminate\Database\Eloquent\Model|object|null
-     */
-    public function getNewestRecordByName($productName)
-    {
-        return $this->fuelPriceModel->where('name', '=', $productName)
-            ->orderBy('start_at', 'desc')
-            ->first();
-    }
-
-    /**
-     * @param $productName
-     * @param $startAt
+     * @param $name string
+     * @param $date string
      * @return bool
      */
-    public function checkRecordExistByNameStartTime($productName, $startAt)
+    public function checkRecordExistByNameDate($name, $date)
     {
-        return $this->fuelPriceModel->where('name', '=', $productName)
-            ->where('start_at', '=', $startAt)
+        return $this->astroModel->where('name', '=', $name)
+            ->where('created_at', '=', $date)
             ->exists();
     }
 }
