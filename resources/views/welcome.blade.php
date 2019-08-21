@@ -79,8 +79,8 @@
             @endif
 
             <div class="content">
-                <img src="https://teapot.space/PatrickStar.svg">
-                
+                <img src="{{ asset('img/PatrickStar.svg') }}">
+
                 <div class="title m-b-md">
                     Laravel
                 </div>
