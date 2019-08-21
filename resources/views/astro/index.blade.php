@@ -1,4 +1,5 @@
 @extends('layouts.app')
+@inject(astroPresenter, App\Presenters\AstroPresenter)
 
 @section('content')
     <div class="container">
@@ -30,7 +31,11 @@
                                             <label class="col-sm-3 control-label">{{ $luckTitle }}&nbsp;{{ $typeTitle }}</label>
                                             <div class="col-sm-9">
                                                 <p class="form-control-static">
-                                                    {{ $astro->{$index . '_luck_' . $type} }}
+                                                    @if($type === 'score')
+                                                        {!! $astroPresenter->getScoreImage( $astro->{$index . '_luck_' . $type} ) !!}
+                                                    @else
+                                                        {{ $astro->{$index . '_luck_' . $type} }}
+                                                    @endif
                                                 </p>
                                             </div>
                                         </div>
