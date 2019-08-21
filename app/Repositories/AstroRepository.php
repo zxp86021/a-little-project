@@ -47,4 +47,21 @@ class AstroRepository
             ->where('created_at', '=', $date)
             ->exists();
     }
+
+    /**
+     * @return array
+     */
+    public function getDateHasData()
+    {
+        return $this->astroModel->select('created_at as date')->distinct()->get();
+    }
+
+    /**
+     * @param $date string
+     * @return array
+     */
+    public function getDataByDate($date)
+    {
+        return $this->astroModel->where('created_at', $date)->get();
+    }
 }

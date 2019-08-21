@@ -71,6 +71,16 @@ class AstroService
         return $starList;
     }
 
+    /**
+     * @param $astroLink string
+     * @return array
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     * @throws \PHPHtmlParser\Exceptions\ChildNotFoundException
+     * @throws \PHPHtmlParser\Exceptions\CircularException
+     * @throws \PHPHtmlParser\Exceptions\CurlException
+     * @throws \PHPHtmlParser\Exceptions\NotLoadedException
+     * @throws \PHPHtmlParser\Exceptions\StrictException
+     */
     public function getAstroDetail($astroLink)
     {
         $httpClient = new GuzzleHttpClient($this->httpConf);
@@ -120,10 +130,30 @@ class AstroService
         return $luck;
     }
 
+    /**
+     * @param $data
+     */
     public function createToDb($data)
     {
         if (!$this->astroRepository->checkRecordExistByNameDate($data['name'], date('Y-m-d'))) {
             $this->astroRepository->createAstro($data);
         }
+    }
+
+    /**
+     * @return array
+     */
+    public function getDateHasData()
+    {
+        return $this->astroRepository->getDateHasData()->pluck('date');
+    }
+
+    /**
+     * @param $date string
+     * @return array
+     */
+    public function getDataByDate($date)
+    {
+        return $this->astroRepository->getDataByDate($date);
     }
 }

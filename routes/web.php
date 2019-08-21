@@ -23,3 +23,5 @@ Route::prefix('auth')->group(function () {
 });
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/astro', 'AstroController@index')->name('astro');
