@@ -44,12 +44,16 @@ class GetAstro extends Command
     {
         $astroLinks = $this->astroService->getAllAstro();
 
+        $this->info(json_encode($astroLinks, JSON_UNESCAPED_UNICODE));
+
         foreach ($astroLinks as $name => $link) {
             $detail = $this->astroService->getAstroDetail($link);
 
             $detail['name'] = $name;
 
             $this->astroService->createToDb($detail);
+
+            $this->info(json_encode($detail, JSON_UNESCAPED_UNICODE));
 
             sleep(10);
         }
