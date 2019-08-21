@@ -13,8 +13,37 @@
                             {{ session('status') }}
                         </div>
                     @endif
-
                     You are logged in!
+                    <p></p>
+                    <div class="form-horizontal">
+                        <div class="form-group">
+                            <div class="col-sm-12">
+                                <p class="form-control-static text-center">
+                                    @if (!empty($user->avatar))
+                                        <img class="head-pic" src="{{ $user->avatar }}">
+                                    @else
+                                        <img class="head-pic" src="{{ asset('img/avatar.png') }}">
+                                    @endif
+                                </p>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-6 control-label">Name</label>
+                            <div class="col-sm-6">
+                                <p class="form-control-static">
+                                    {{ $user->name }}
+                                </p>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-6 control-label">Email</label>
+                            <div class="col-sm-6">
+                                <p class="form-control-static">
+                                    {{ $user->email }}
+                                </p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
