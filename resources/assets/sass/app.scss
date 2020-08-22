@@ -52,3 +52,11 @@
   height: 4em;
   width: 4em;
 }
+
+.accordion-toggle:before {
+  content: "－";
+}
+
+.accordion-toggle.collapsed:before {
+  content: "＋";
+}
