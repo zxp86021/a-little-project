@@ -17,31 +17,41 @@
 
                     <div class="panel-body">
                         <div class="form-horizontal">
-                            @foreach($data as $astro)
+                            @if (count($data) > 0)
+                                @foreach($data as $astro)
+                                    <div class="form-group">
+                                        <div class="col-sm-12">
+                                            <h3 class="form-control-static text-center">
+                                                {{ $astro->name }}
+                                            </h3>
+                                        </div>
+                                    </div>
+                                    @foreach(trans('astro.luck') as $index => $luckTitle)
+                                        @foreach(trans('astro.type') as $type => $typeTitle)
+                                            <div class="form-group">
+                                                <label class="col-sm-3 control-label">{{ $luckTitle }}&nbsp;{{ $typeTitle }}</label>
+                                                <div class="col-sm-9">
+                                                    <p class="form-control-static">
+                                                        @if($type === 'score')
+                                                            {!! $astroPresenter->getScoreImage( $astro->{$index . '_luck_' . $type} ) !!}
+                                                        @else
+                                                            {{ $astro->{$index . '_luck_' . $type} }}
+                                                        @endif
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        @endforeach
+                                    @endforeach
+                                @endforeach
+                            @else
                                 <div class="form-group">
                                     <div class="col-sm-12">
                                         <h3 class="form-control-static text-center">
-                                            {{ $astro->name }}
+                                            無資料
                                         </h3>
                                     </div>
                                 </div>
-                                @foreach(trans('astro.luck') as $index => $luckTitle)
-                                    @foreach(trans('astro.type') as $type => $typeTitle)
-                                        <div class="form-group">
-                                            <label class="col-sm-3 control-label">{{ $luckTitle }}&nbsp;{{ $typeTitle }}</label>
-                                            <div class="col-sm-9">
-                                                <p class="form-control-static">
-                                                    @if($type === 'score')
-                                                        {!! $astroPresenter->getScoreImage( $astro->{$index . '_luck_' . $type} ) !!}
-                                                    @else
-                                                        {{ $astro->{$index . '_luck_' . $type} }}
-                                                    @endif
-                                                </p>
-                                            </div>
-                                        </div>
-                                    @endforeach
-                                @endforeach
-                            @endforeach
+                            @endif
                         </div>
                     </div>
                 </div>

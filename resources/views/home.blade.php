@@ -13,7 +13,6 @@
                             {{ session('status') }}
                         </div>
                     @endif
-                    You are logged in!
                     <p></p>
                     <div class="form-horizontal">
                         <div class="form-group">
