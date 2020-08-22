@@ -26,6 +26,7 @@ class GetAstro extends Command
     /**
      * Create a new command instance.
      *
+     * @param AstroService $astroService
      * @return void
      */
     public function __construct(AstroService $astroService)
@@ -39,6 +40,13 @@ class GetAstro extends Command
      * Execute the console command.
      *
      * @return mixed
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     * @throws \PHPHtmlParser\Exceptions\ChildNotFoundException
+     * @throws \PHPHtmlParser\Exceptions\CircularException
+     * @throws \PHPHtmlParser\Exceptions\ContentLengthException
+     * @throws \PHPHtmlParser\Exceptions\LogicalException
+     * @throws \PHPHtmlParser\Exceptions\NotLoadedException
+     * @throws \PHPHtmlParser\Exceptions\StrictException
      */
     public function handle()
     {
@@ -59,5 +67,7 @@ class GetAstro extends Command
         }
 
         $this->info('mission complete');
+
+        return 0;
     }
 }

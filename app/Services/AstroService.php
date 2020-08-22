@@ -13,6 +13,10 @@ class AstroService
     private $httpConf;
     private $luckSet;
 
+    /**
+     * AstroService constructor.
+     * @param AstroRepository $astroRepository
+     */
     public function __construct(AstroRepository $astroRepository)
     {
         $this->astroRepository = $astroRepository;
@@ -40,7 +44,8 @@ class AstroService
      * @throws \GuzzleHttp\Exception\GuzzleException
      * @throws \PHPHtmlParser\Exceptions\ChildNotFoundException
      * @throws \PHPHtmlParser\Exceptions\CircularException
-     * @throws \PHPHtmlParser\Exceptions\CurlException
+     * @throws \PHPHtmlParser\Exceptions\ContentLengthException
+     * @throws \PHPHtmlParser\Exceptions\LogicalException
      * @throws \PHPHtmlParser\Exceptions\NotLoadedException
      * @throws \PHPHtmlParser\Exceptions\StrictException
      */
@@ -52,7 +57,7 @@ class AstroService
 
         $dom = new Dom;
 
-        $dom->load($response->getBody());
+        $dom->loadStr($response->getBody());
 
         $stars = $dom->find('.STAR12_BOX > ul > li');
 
@@ -77,7 +82,8 @@ class AstroService
      * @throws \GuzzleHttp\Exception\GuzzleException
      * @throws \PHPHtmlParser\Exceptions\ChildNotFoundException
      * @throws \PHPHtmlParser\Exceptions\CircularException
-     * @throws \PHPHtmlParser\Exceptions\CurlException
+     * @throws \PHPHtmlParser\Exceptions\ContentLengthException
+     * @throws \PHPHtmlParser\Exceptions\LogicalException
      * @throws \PHPHtmlParser\Exceptions\NotLoadedException
      * @throws \PHPHtmlParser\Exceptions\StrictException
      */
@@ -89,7 +95,7 @@ class AstroService
 
         $dom = new Dom;
 
-        $dom->load($response->getBody());
+        $dom->loadStr($response->getBody());
 
         $details = $dom->find('.TODAY_CONTENT > p');
 
