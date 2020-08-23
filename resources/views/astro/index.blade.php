@@ -1,6 +1,10 @@
 @extends('layouts.app')
 @inject(astroPresenter, App\Presenters\AstroPresenter)
 
+@section('css')
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+@endsection
+
 @section('content')
     <div class="container">
         <div class="row">
@@ -8,13 +12,8 @@
                 <div class="panel panel-default">
                     <div class="panel-heading">
                         @lang('astro.astro')
-                        <select id="astro-date">
-                            @foreach($dateList as $date)
-                                <option value="{{ $date }}" @if($searchDate === $date) selected @endif>{{ $date }}</option>
-                            @endforeach
-                        </select>
+                        <input id="astro-date" class="flatpickr flatpickr-input" type="text" placeholder="Select Date.." readonly="readonly" value="{{ $searchDate }}">
                     </div>
-
                     <div class="panel-body">
                         <div class="form-horizontal">
                             @if (count($data) > 0)
@@ -69,9 +68,10 @@
 @endsection
 
 @section('js')
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
     <script>
+        $(".flatpickr-input").flatpickr();
         const $_astroDateSelect = $('#astro-date');
-
         $_astroDateSelect.on('change', function () {
             document.location.href = location.protocol + '//' + location.hostname + '/astro?date=' + $(this).val();
         });

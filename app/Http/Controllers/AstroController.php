@@ -27,13 +27,11 @@ class AstroController extends Controller
      * Show the application dashboard.
      *
      * @param $request Request
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\Foundation\Application|\Illuminate\View\View
      */
     public function index(Request $request)
     {
         $user = Auth::user();
-
-        $dateList = $this->astroService->getDateHasData();
 
         if (empty($request->date)) {
             $date = date('Y-m-d');
@@ -44,6 +42,6 @@ class AstroController extends Controller
         $searchDate = $date;
         $data = $this->astroService->getDataByDate($date);
 
-        return view('astro.index', compact('user', 'dateList', 'searchDate', 'data'));
+        return view('astro.index', compact('user', 'searchDate', 'data'));
     }
 }
